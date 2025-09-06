@@ -1,7 +1,9 @@
 export type MoodType = {
   mood: {
-    id: number;
+    value: string;
     label: string;
-    icon: string;
+    emoji: string;
   };
 };
+
+export type IconType = "default" | "fluffly" | "toy";

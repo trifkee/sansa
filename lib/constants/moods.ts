@@ -1,26 +1,57 @@
 export const MOODS = [
   {
-    label: "Happy",
-    icon: "😊",
-  },
-  {
-    label: "Sad",
-    icon: "😢",
+    label: "Amazed",
+    value: "amazed",
+    emoji: "🤩",
   },
   {
     label: "Angry",
-    icon: "😠",
+    value: "angry",
+    emoji: "😡",
   },
   {
-    label: "Surprised",
-    icon: "😮",
+    label: "Anxious",
+    value: "anxious",
+    emoji: "😰",
   },
   {
-    label: "Relaxed",
-    icon: "😌",
+    label: "Chill",
+    value: "chill",
+    emoji: "😎",
   },
   {
-    label: "sleepy",
-    icon: "😴",
+    label: "Frustrated",
+    value: "frustrated",
+    emoji: "😤",
+  },
+  {
+    label: "Indifferent",
+    value: "indifferent",
+    emoji: "😐",
+  },
+  {
+    label: "Loving",
+    value: "loving",
+    emoji: "🥰",
+  },
+  {
+    label: "Melancholy",
+    value: "melancholy",
+    emoji: "😌",
+  },
+  {
+    label: "Sad",
+    value: "sad",
+    emoji: "😞",
+  },
+  {
+    label: "Sleepy",
+    value: "sleepy",
+    emoji: "😴",
+  },
+  {
+    label: "Worried",
+    value: "worried",
+    emoji: "🥹",
   },
 ];

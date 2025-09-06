@@ -1,30 +1,52 @@
 <template>
-  <Button>
+  <Button class="emoji-button">
     <template #label>
-      <p class="icon">
-        {{ props.mood.icon }}
-      </p>
+      <img
+        :src="`/images/emojis/${iconMode}/${props.mood.value}.png`"
+        alt="Emoji"
+        class="emoji-button__icon"
+      />
     </template>
   </Button>
 </template>
 
 <script setup lang="ts">
-// @ts-ignore - Imported correctly
-import Button from "~ui/components/atoms/Button.vue";
+// Store
+import { useGeneralSettings } from "store/general";
 
-type MoodType = {
-  mood: {
-    id: number;
-    label: string;
-    icon: string;
-  };
-};
+// Components
+import Button from "components/atoms/Button.vue";
+
+// Types
+import type { MoodType } from "types/mood";
 
 const props = defineProps<MoodType>();
+
+//  General Logic
+const store = useGeneralSettings();
+
+const iconMode = computed(() => store.icons);
 </script>
 
 <style lang="scss" scoped>
-.icon {
-  scale: 3;
+.emoji-button {
+  aspect-ratio: 1 / 1;
+  width: 10rem;
+
+  & > * {
+    width: 100%;
+    height: 100%;
+
+    & > * {
+      width: 100%;
+      height: 100%;
+    }
+  }
+
+  &__icon {
+    min-width: 2rem;
+    scale: 1.5;
+    object-fit: contain;
+  }
 }
 </style>
