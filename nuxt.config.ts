@@ -15,9 +15,20 @@ export default defineNuxtConfig({
   css: ["~/assets/css/reset.css", "~/assets/css/variables.css"],
   googleFonts: {
     families: {
-      Inter: [200, 400, 700],
-      CrimsonText: [400, 600, 700],
+      Figtree: [300, 400, 600, 700],
+      "Cormorant Garamond": [300, 400, 500, 600, 700],
+      Playfair: [400, 600, 700, 800],
     },
     download: true,
+  },
+  // Dev server settings
+  devServer: {
+    host: "0.0.0.0",
+    port: 3000,
+  },
+  nitro: {
+    devProxy: {
+      host: "0.0.0.0",
+    },
   },
 });

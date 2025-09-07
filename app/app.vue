@@ -1,63 +1,31 @@
 <script setup>
 // Components
-import Button from "ui/components/atoms/Button.vue";
-import Mood from "ui/components/atoms/Mood.vue";
-import Switch from "ui/components/atoms/Switch.vue";
-
-// Types
-import { MOODS } from "lib/constants/moods";
-
-// Store
-import { useGeneralSettings } from "store/general";
-
-// General
-const store = useGeneralSettings();
-
-const appName = store.appName;
-const user = "John Doe";
+import Header from "ui/components/moleculs/Header.vue";
+import NewFelling from "ui/components/moleculs/NewFelling.vue";
+import Navigation from "ui/components/organism/Navigation.vue";
 </script>
 
 <template>
   <div class="wrapper">
-    <div class="header">
-      <h1 class="header__title">{{ appName }}</h1>
-      <div class="welcome-message">
-        <p class="greeting">
-          Hey, <span>{{ user }}</span> 👋
-        </p>
-
-        <div class="date">
-          {{
-            new Date().toLocaleDateString("en-US", {
-              weekday: "short",
-              month: "short",
-              day: "numeric",
-            })
-          }}
-          <Icon class="date__icon" name="akar-icons:calendar" />
-        </div>
-      </div>
-    </div>
-    <div class="moods">
-      <Mood v-for="mood in MOODS" :key="mood.value" :mood="mood" />
-    </div>
-
-    <Switch />
-    <Button>
-      <template #label>Button</template>
-    </Button>
+    <Header />
+    <NewFelling />
   </div>
+  <Navigation />
 </template>
 
 <style lang="scss" scoped>
 .wrapper {
   padding: 1rem;
+  gap: 1rem;
+  display: flex;
+  flex-direction: column;
 }
+
 .header {
   &__title {
     font-style: italic;
     font-weight: 700;
-    font-family: "Crimson Text", serif;
+    font-family: "Cormorant Garamond", serif;
     font-size: 1.5rem;
   }
 
@@ -75,7 +43,7 @@ const user = "John Doe";
       border-radius: 10rem;
       outline: 1px solid rgb(0, 0, 0, 0.1);
       background-image: linear-gradient(0deg, #fff, #e9e9e9);
-      font-family: "Crimson Text", serif;
+      font-family: "Cormorant Garamond", serif;
       font-style: italic;
       font-weight: 700;
 
@@ -92,25 +60,6 @@ const user = "John Doe";
         font-weight: 700;
       }
     }
-  }
-}
-
-.moods {
-  margin-left: -1rem;
-  margin-right: -1rem;
-  padding-left: 1rem;
-  padding-right: 1rem;
-
-  overflow-x: auto;
-  white-space: nowrap;
-  display: flex;
-  gap: 0.25rem;
-  scroll-snap-type: x mandatory;
-  -webkit-overflow-scrolling: touch;
-
-  & > * {
-    flex-shrink: 0;
-    scroll-snap-align: center;
   }
 }
 </style>

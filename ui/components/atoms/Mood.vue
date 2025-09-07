@@ -19,6 +19,7 @@ import Button from "components/atoms/Button.vue";
 
 // Types
 import type { MoodType } from "types/mood";
+import { computed } from "vue";
 
 const props = defineProps<MoodType>();
 
@@ -31,7 +32,7 @@ const iconMode = computed(() => store.icons);
 <style lang="scss" scoped>
 .emoji-button {
   aspect-ratio: 1 / 1;
-  width: 10rem;
+  width: 5rem;
 
   & > * {
     width: 100%;
@@ -40,13 +41,15 @@ const iconMode = computed(() => store.icons);
     & > * {
       width: 100%;
       height: 100%;
+      padding: 0.2rem !important;
     }
   }
 
   &__icon {
     min-width: 2rem;
-    scale: 1.5;
+    scale: 0.75;
     object-fit: contain;
+    filter: drop-shadow(0 5px 5px rgba(0, 0, 0, 0.25));
   }
 }
 </style>
